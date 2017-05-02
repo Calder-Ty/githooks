@@ -1,0 +1,17 @@
+/* Configuration file for git hooks. Each Hook begins a new JSON object.
+   Each JSON OBJECT Gives default parameters that you can then use to set 
+   paramters that are used for exectuion of the script.
+*/
+{
+    "applypatch-msg": {},
+    "commit-msg":{},
+    "post-update":{},
+    "pre-push":{
+        "test_command": "",
+        "protected_branch": "master"
+    },
+    "pre-rebase":{},
+    "prepare-commit-msg":{},
+    "update": {}
+
+}

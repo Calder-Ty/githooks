@@ -5,6 +5,7 @@
 {
     "applypatch-msg": {},
     "commit-msg":{},
+    "pre-commit":{},
     "post-update":{},
     "pre-push":{
         "test_command": "",

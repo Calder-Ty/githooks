@@ -16,4 +16,4 @@ with open('hookconfig.json', 'r') as configfile:
     CONFIG = json.load(configfile)
 
 if __name__ == "__main__":
-    main()
+    main(CONFIG['pre-push'])

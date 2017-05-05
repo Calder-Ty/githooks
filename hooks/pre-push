@@ -15,9 +15,5 @@ from src.prepush import prepush_main as main
 with open('hookconfig.json', 'r') as configfile:
     CONFIG = json.load(configfile)
 
-def parse_args():
-    return None
-
 if __name__ == "__main__":
-    args = parse_args()
-    main(args)
+    main()

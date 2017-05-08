@@ -6,10 +6,7 @@ Git hook that will:
     3. if on Master, run tests
         if tests fail, abort push.
 '''
-import argparse
 import json
-import subprocess
-import sys
 from src.prepush import prepush_main as main
 
 with open('hookconfig.json', 'r') as configfile:

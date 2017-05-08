@@ -3,7 +3,7 @@ import subprocess
 import sys
 
 CONFIG = {}
-def prepush_main(args=None, config=CONFIG):
+def prepush_main(config=CONFIG):
     '''main function'''
     # Todo Throw ERROR here that is more explicit if config file not set-up
     # Translated from bash: http://blog.ittybittyapps.com/blog/2013/09/03/git-pre-push/

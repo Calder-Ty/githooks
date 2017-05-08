@@ -5,7 +5,10 @@
 {
     "applypatch-msg": {},
     "commit-msg":{},
-    "pre-commit":{},
+    "pre-commit":{
+        "test_command": "",
+        "readme_path": null
+    },
     "post-update":{},
     "pre-push":{
         "test_command": "",

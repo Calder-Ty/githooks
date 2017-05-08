@@ -1,9 +1,35 @@
 #! /usr/bin/env python3
 '''Tests for My hooks'''
 import unittest
-from unittest.mock import patch, PropertyMock
+from unittest.mock import patch, PropertyMock, mock_open
 
 from src.prepush import prepush_main
+from src.precommit import precommit_main
+
+
+class PreCommitTest(unittest.TestCase):
+    '''Tests for precommit hook'''
+    def test_main_fails_when_config_keys_not_set(self):
+        '''Main should exit with non zero status when KeyError occurs'''
+        config = {}
+        with self.assertRaises(SystemExit) as cm:
+            precommit_main(config=config)
+        the_exception = cm.exception
+        self.assertEqual(the_exception.code, 1)
+        self.assertRaises(SystemExit, precommit_main, config)
+
+    @patch('subprocess.run')
+    @patch('src.precommit.open', new_callable=mock_open(read_data='Hi\nThis Is a word\n'))
+    def test_writes_to_file(self, mockopen, mockrun):
+        '''Test if files are written to when stuff works'''
+        config = {'test_command': 'ls',
+                  'readme_path': 'README'
+                 }
+        subprocess_out = mockrun.return_value
+        subprocess_out.returncode = 0
+        precommit_main(config=config)
+        mockopen.assert_called_with('README', 'w')
+
 
 class PrePushTests(unittest.TestCase):
     '''Tests for the pre-push hooks'''

@@ -1,13 +1,9 @@
 #! /usr/bin/env python3
+import json
+from src import precommit_main as main
 
-import argparse
-
-def parse_args():
-    pass
-
-def main(args=None):
-    pass
+with open('hookconfig.json', 'r') as configfile:
+    CONFIG = json.load(configfile)
 
 if __name__ == "__main__":
-    args = parse_args()
-    main(args)
+    main(CONFIG)
